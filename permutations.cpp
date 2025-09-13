@@ -42,14 +42,21 @@ void permutations2 (int array[], size_t size) {
     //eliminate the search that is done in algorithm 1 and instead 
     //use another array to keep track of whether or not a generated 
     //random number has already been assigned to a prior element.
+    int ran;
+    bool *used = new bool[size]();
 
+    for (int i = 0; i < size; i++) {
+        do{
+            ran = 1 + (randint() % size);
+        } 
+        while (used[ran-1] == 1);
 
+        array[i] = ran;
 
+        used[ran-1] = 1;
+    }
 
-
-
-
-
+    delete[] used;
 }
 
 void permutations3 (int array[], size_t size) {
