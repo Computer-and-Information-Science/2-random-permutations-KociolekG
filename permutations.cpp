@@ -1,4 +1,4 @@
-// YOUR NAME HERE
+// Gage Kociolek
 
 #include "permutations.h"
 #include "randint.h"
@@ -23,14 +23,43 @@ static size_t search (const int array[], size_t size, int target) {
     return size;
 }
 
-void permutations1 (int array[], size_t size) {
+void permutations1 (int array[], size_t size){ 
     // TODO: Implement algorithm #1 here
+    // Fill the array A from a[0] to a[N-1] as follows: To fill a[i], generate random numbers until you get 
+    // one that is not already in a[0], a[1], …, a[i-1]
+        
+       for (int i = 0; i < size; i++) {
+        size_t randomNum;
+        do {
+            randomNum = randint (1,size);
+        }
+        while (search(array, i, randomNum) < i);
+        array[i] = randomNum;
+    }
 }
-
 void permutations2 (int array[], size_t size) {
     // TODO: Implement algorithm #2 here
+    //eliminate the search that is done in algorithm 1 and instead 
+    //use another array to keep track of whether or not a generated 
+    //random number has already been assigned to a prior element.
+
+
+
+
+
+
+
+
 }
 
 void permutations3 (int array[], size_t size) {
     // TODO: Implement algorithm #3 here
+
+
+
+
+
+
+
+
 }

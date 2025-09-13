@@ -1,4 +1,4 @@
-# Assignment 2 Analysis - YOUR NAME HERE
+# Assignment 2 Analysis - Gage Kociolek
 
 ## Algorithm 1
 
