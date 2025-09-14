@@ -29,13 +29,13 @@ void permutations1 (int array[], size_t size){
     // Fill the array A from a[0] to a[N-1] as follows: To fill a[i], generate random numbers until you get 
     // one that is not already in a[0], a[1], …, a[i-1]
         
-       for (int i = 0; i < size; i++) {
+       for (int i = 0; i < size; i++) { //initialize
         size_t randomNum;
         do {
             randomNum = randint (1,size);
         }
-        while (search(array, i, randomNum) < i);
-        array[i] = randomNum;
+        while (search(array, i, randomNum) < i); //checks for randomNum
+        array[i] = randomNum; //random assigned
     }
 }
 void permutations2 (int array[], size_t size) {
@@ -44,20 +44,20 @@ void permutations2 (int array[], size_t size) {
     //use another array to keep track of whether or not a generated 
     //random number has already been assigned to a prior element.
     int ran;
-    bool *used = new bool[size]();
+    bool *used = new bool[size](); //N bool array for false values
 
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) { //fill for random numbers
         do{
             ran = 1 + (randint() % size);
         } 
         while (used[ran-1] == 1);
 
-        array[i] = ran;
+        array[i] = ran; //assign 
 
-        used[ran-1] = 1;
+        used[ran-1] = 1; //assign
     }
 
-    delete[] used;
+    delete[] used; //prevent memory leak
 }
 
 void permutations3 (int array[], size_t size) {
@@ -65,14 +65,15 @@ void permutations3 (int array[], size_t size) {
     // Fill each each element array[i] with the the value i+1. 
     // Then, for each element of the array, swap its
     // value with some other randomly chosen element of the array
-    int j;
-    for (int i = 0; i < size; i++) {
+    
+    int j; //j used only for this permutation for swap
+    for (int i = 0; i < size; i++) { //fill 
         array[i] = i + 1;
     }
 
     for (int i = 0; i < size; i++) {
         j = (randint()% size);
-        std::swap(array[i], array[j]);
+        std::swap(array[i], array[j]); //swap
 }
 
 }
