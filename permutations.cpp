@@ -1,5 +1,6 @@
 // Gage Kociolek
 
+#include <algorithm>
 #include "permutations.h"
 #include "randint.h"
 #include <cstddef>
@@ -61,12 +62,17 @@ void permutations2 (int array[], size_t size) {
 
 void permutations3 (int array[], size_t size) {
     // TODO: Implement algorithm #3 here
+    // Fill each each element array[i] with the the value i+1. 
+    // Then, for each element of the array, swap its
+    // value with some other randomly chosen element of the array
+    int j;
+    for (int i = 0; i < size; i++) {
+        array[i] = i + 1;
+    }
 
-
-
-
-
-
-
+    for (int i = 0; i < size; i++) {
+        j = (randint()% size);
+        std::swap(array[i], array[j]);
+}
 
 }
